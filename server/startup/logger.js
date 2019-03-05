@@ -26,5 +26,7 @@ module.exports = function winstonInit() {
     throw ex;
   });
 
-  winston.add(winston.transports.File, { filename: `${appDir}/logs/all.log` });
+  winston.add(winston.transports.File, {
+    filename: `${appDir}/logs/all.log`,
+  });
 };
