@@ -4,12 +4,11 @@ const logger = require('winston');
 const port = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+const router = require('./routes/index');
+
 require('./startup/logger')();
 
-app.get('/', (req, res) => res.json({
-  success: true,
-  message: 'Successfully running',
-}));
+app.use('/', router);
 
 app.listen(port, () => {
   logger.info(`"${NODE_ENV}" Server started on port ${port}...`);
