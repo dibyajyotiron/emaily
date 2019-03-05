@@ -11,6 +11,6 @@ app.get('/', (req, res) => res.json({
   message: 'Successfully running',
 }));
 
-app.listen(3000, () => {
+app.listen(port, () => {
   logger.info(`"${NODE_ENV}" Server started on port ${port}...`);
 });
