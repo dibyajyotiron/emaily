@@ -8,9 +8,9 @@
 		"npm": "5.0.3"
 	},
 	"scripts": {
-		"start": "node app.js",
+		"start": "NODE_ENV=production node app.js",
 		"startDev": "set NODE_ENV=development && nodemon app.js",
-		"startProd": "set NODE_ENV=production && nodemon app.js",
+		"startProd": "NODE_ENV=production nodemon app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Dibyajyoti Ghosal",
