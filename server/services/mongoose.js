@@ -10,7 +10,7 @@ module.exports = () => {
     })
     .then(() => {
       if (process.env.NODE_ENV !== 'production') return winston.info('Connected to', `${mongoURI}...`.blue);
-      return 'connected to mongodb on cloud...';
+      return winston.info('connected to production environment of mongodb...');
     })
     .catch(ex => winston.error(`${ex.message}`));
 };
