@@ -1,4 +1,7 @@
-module.exports = {
-  googleClientID: '199023000140-6esj6stkmb9oi3pqq49gtp4bp8fsa911.apps.googleusercontent.com',
-  googleClientSecret: process.env.googleClientSecret,
-};
+// console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  module.exports = require('./dev');
+} else {
+  console.log(require('./prod'));
+  module.exports = require('./prod');
+}

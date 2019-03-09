@@ -1,7 +1,8 @@
 module.exports = {
-	extends: 'airbnb-base',
+	extends: "airbnb-base",
 	rules: {
-		'linebreak-style': 0,
-		'no-console': ['warn', { allow: ['warn', 'info'] }],
+		"global-require": 0,
+		"linebreak-style": 0,
+		"no-console": ["warn", { allow: ["warn", "info"] }],
 	},
 };

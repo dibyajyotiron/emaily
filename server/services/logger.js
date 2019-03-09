@@ -3,7 +3,7 @@ const path = require('path');
 
 const appDir = path.dirname(require.main.filename);
 
-module.exports = function winstonInit() {
+module.exports = () => {
   winston.handleExceptions(
     new winston.transports.Console({
       level: 'debug',
@@ -21,6 +21,7 @@ module.exports = function winstonInit() {
       colorize: true,
     }),
   );
+
 
   process.on('unhandledRejection', (ex) => {
     throw ex;
