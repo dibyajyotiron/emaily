@@ -1,17 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import AuthSpinner from "./Spinners/AuthSpinner/AuthSpinner";
+import { Link } from "react-router-dom";
+import Landing from "./Landing";
 class Header extends Component {
+	renderContent() {
+		switch (this.props.auth) {
+			case null:
+				return <AuthSpinner />;
+			case false:
+				return (
+					<li>
+						<a href="/auth/google">Login with Google</a>
+					</li>
+				);
+			default:
+				return (
+					<li>
+						<a href="/auth/logout">Logout</a>
+					</li>
+				);
+		}
+	}
+
 	render() {
 		return (
 			<nav>
 				<div className="container nav-wrapper">
-					<a style={{ paddingLeft: "1%" }} href="#" className="left brand-logo">
+					<Link style={{ paddingLeft: "1%" }} to="/" className="left brand-logo">
 						Emaily
-					</a>
+					</Link>
 
 					<ul id="nav-mobile" className="right hide-on-med-and-down">
-						<li>
-							<a>Login with Google</a>
-						</li>
+						{this.renderContent()}
 					</ul>
 				</div>
 			</nav>
@@ -19,4 +40,8 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+	return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
