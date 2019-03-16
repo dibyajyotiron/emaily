@@ -6,4 +6,6 @@ module.exports = {
   }@ds111078.mlab.com:11078/emaily-prod
   `,
   cookieKey: process.env.cookieKey,
+  stripePublishableKey: process.env.stripePublishableKey,
+  stripeSecretKey: process.env.stripeSecretKey,
 };

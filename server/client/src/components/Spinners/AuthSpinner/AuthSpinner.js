@@ -2,7 +2,7 @@ import React from "react";
 import "./AuthSpinner.css";
 const AuthSpinner = () => {
 	return (
-		<div class="lds-spinner">
+		<div className="lds-spinner">
 			<div />
 			<div />
 			<div />

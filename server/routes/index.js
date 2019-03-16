@@ -1,7 +1,12 @@
 const express = require('express');
-const auth = require('./authRoutes');
+
+const authRoute = require('./authRoutes');
+const payment = require('./paymentRoutes');
+
+const auth = require('../middlewares/authMiddleware');
 
 module.exports = (app) => {
   app.use(express.json());
-  app.use('/auth', auth);
+  app.use('/auth', authRoute);
+  app.use('/api/payment', auth, payment);
 };
