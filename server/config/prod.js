@@ -8,4 +8,6 @@ module.exports = {
   cookieKey: process.env.cookieKey,
   stripePublishableKey: process.env.stripePublishableKey,
   stripeSecretKey: process.env.stripeSecretKey,
+  sendGridApiKey: process.env.sendGridApiKey,
+  domain: 'https://quiet-plains-34576.herokuapp.com',
 };
