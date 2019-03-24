@@ -13,6 +13,7 @@ const keys = require('./config/keys');
 const port = process.env.PORT || 5000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+require('express-async-errors');
 require('colors');
 require('./services/mongoose')();
 require('./services/logger')();
