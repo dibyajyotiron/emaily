@@ -28,7 +28,7 @@ router.post('/', [auth, validateCredits], async (req, res) => {
     await survey.save();
     req.user.credits -= 1;
     await req.user.save();
-    res.json({ user: req.user });
+    res.send(req.user);
   } catch (error) {
     res.status(422).json({
       error: true,

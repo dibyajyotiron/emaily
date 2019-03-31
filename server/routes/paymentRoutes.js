@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const keys = require('../config/keys');
 // eslint-disable-next-line
-const stripe = require('stripe')(keys.stripeSecretKey);
+const stripe = require("stripe")(keys.stripeSecretKey);
 
 router.post('/', async (req, res) => {
   await stripe.charges.create({
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
   });
   req.user.credits += 5;
   const user = await req.user.save();
-  res.json(user);
+  res.send(user);
 });
 
 module.exports = router;
