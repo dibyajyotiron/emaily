@@ -4,7 +4,7 @@ module.exports = {
 		'no-unused-vars': [
 			'error',
 			{
-				argsIgnorePattern: 'next|res|req|err',
+				argsIgnorePattern: 'next|res|req|err|tunnel',
 			},
 		],
 		'max-len': ['warn', { code: 80 }],
