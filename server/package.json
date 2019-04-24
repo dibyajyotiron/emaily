@@ -12,8 +12,9 @@
 		"devServer": "set NODE_ENV=development&& nodemon app.js",
 		"prod": "set NODE_ENV=production&& nodemon app.js",
 		"client": "npm run start --prefix client",
-		"dev": "concurrently \"npm run devServer\" \"npm run client\"",
+		"dev": "concurrently \"npm run devServer\" \"npm run client\" \"npm run webhook\"",
 		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix client && npm run build --prefix client",
+		"webhook": "forever start sendgrid_webhook.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Dibyajyoti Ghosal",
@@ -28,6 +29,7 @@
 		"express": "^4.15.3",
 		"express-async-errors": "^3.1.1",
 		"http-proxy-middleware": "^0.19.1",
+		"localtunnel": "^1.9.1",
 		"mongoose": "^5.4.17",
 		"passport": "^0.3.2",
 		"passport-google-oauth20": "^1.0.0",
@@ -41,6 +43,7 @@
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-plugin-import": "^2.16.0",
 		"eslint-plugin-jsx-a11y": "^6.2.1",
-		"eslint-plugin-react": "^7.12.4"
+		"eslint-plugin-react": "^7.12.4",
+		"forever": "^1.0.0"
 	}
 }
