@@ -42,4 +42,10 @@ router.get('/', (req, res) => {
     message: 'Thanks for voting!',
   });
 });
+
+router.post('/webhooks', (req, res) => {
+  console.log(req.body);
+  res.send({});
+});
+
 module.exports = router;
