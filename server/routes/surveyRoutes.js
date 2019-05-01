@@ -1,4 +1,9 @@
+/* eslint-disable consistent-return */
 const router = require('express').Router();
+
+const _ = require('lodash');
+const { Path } = require('path-parser');
+const { URL } = require('url');
 
 const Survey = require('../models/survey');
 
@@ -44,8 +49,23 @@ router.get('/', (req, res) => {
 });
 
 router.post('/webhooks', (req, res) => {
-  console.log(req.body);
-  res.send({});
+  const parser = new Path('/api/surveys/:surveyId/:choice');
+
+  const processedEvents = _.chain(req.body)
+  // eslint-disable-next-line array-callback-return
+    .map(({ url = '', event, email }) => {
+      const match = url ? parser.test(new URL(url).pathname) : undefined;
+      if (match) {
+        return { email, ...match, event };
+      }
+    })
+    .compact()
+    .uniqBy('email', 'surveyId')
+    .value();
+
+  console.log(processedEvents);
+
+  return res.send(processedEvents);
 });
 
 module.exports = router;
