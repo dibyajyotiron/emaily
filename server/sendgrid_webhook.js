@@ -1,6 +1,6 @@
 const localtunnel = require('localtunnel');
-const logger = require('./services/logger');
+const logger = require('winston');
 
 localtunnel(5000, { subdomain: 'dijyghosal' }, (err, tunnel) => {
-  logger.log('Local Tunnel running');
+  logger.info('Local Tunnel running');
 });
