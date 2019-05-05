@@ -8,13 +8,16 @@ const {
   createSurvey,
   processEvent,
   voting,
+  getSurveyByCurrentUser,
 } = require('../controllers/surveyController');
 
-// eslint-disable-next-line no-unused-vars
-router.post('/', [auth, validateCredits], createSurvey);
+router.get('/', [auth], getSurveyByCurrentUser);
 
 router.get('/:surveyId/:choice', voting);
 
 router.post('/webhooks', processEvent);
+
+// eslint-disable-next-line no-unused-vars
+router.post('/', [auth, validateCredits], createSurvey);
 
 module.exports = router;

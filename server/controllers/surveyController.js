@@ -39,11 +39,19 @@ module.exports = {
     }
   },
 
+  async getSurveyByCurrentUser(req, res) {
+    const surveys = await Survey.find({
+      _user: req.user.id,
+    }).select({ recipients: false, _id: false });
+    res.send(surveys);
+  },
+
   voting(req, res) {
     res.json({
       message: 'Thanks for voting!',
     });
   },
+
   processEvent(req, res) {
     const parser = new Path('/api/surveys/:surveyId/:choice');
 
