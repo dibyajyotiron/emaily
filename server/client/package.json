@@ -11,6 +11,7 @@
 		"react-redux": "^5.0.5",
 		"react-router-dom": "^4.3.1",
 		"react-scripts": "2.1.8",
+		"react-spinners": "^0.5.4",
 		"react-stripe-checkout": "^2.6.3",
 		"redux": "^3.7.1",
 		"redux-form": "^7.0.1",
